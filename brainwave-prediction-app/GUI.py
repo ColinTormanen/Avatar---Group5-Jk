@@ -4,8 +4,9 @@ import random
 import cv2
 from client.brainflow1 import bciConnection
 
-from gui_windows.manual_drone_control_window import manual_drone_control_window
+#from gui_windows.manual_drone_control_window import manual_drone_control_window
 from gui_windows.brainwave_prediction_window import brainwave_prediction_window
+from gui_windows.New_Manual_drone_control_Screen import new_manual_drone_control_window
 
 # TODO enable imports
 # tello imports
@@ -14,7 +15,9 @@ from djitellopy import Tello
 tello = Tello()
 # tello.takeoff()
 
-
+x=5
+x=1
+x=4
 # receives action from a GUI button and executes a corresponding Tello-Drone class move action, then returns "Done"
 
 
@@ -129,7 +132,7 @@ layout4 = [[sg.Button(
     image_filename="/Users/williamdoyle/Documents/GitHub/Avatar/brainwave-prediction-app/images")]]
 
 # Create the windows
-window1 = sg.Window('Start Page', layout1, size=(1200, 800), finalize=True)
+window1 = sg.Window('Start Page', layout1, size= (800, 600), finalize=True)
 window4 = sg.Window('Transfer Data', layout4, size=(
     1200, 800), element_justification='c')
 
@@ -149,6 +152,6 @@ while True:
         window4.read()
     elif event1 == 'Manual Drone Control':
         window1.hide()
-        manual_drone_control_window(items, get_drone_action, window1)
+        new_manual_drone_control_window(items, get_drone_action, window1)
     elif event1 == 'Holding Pattern':
         holding_pattern_window()
